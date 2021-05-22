@@ -1272,6 +1272,19 @@ const char *Window::getName() const
 	return "love.window.sdl";
 }
 
+int Window::getWindowID() const
+{
+	SDL_SysWMinfo wmInfo;
+	SDL_VERSION(&wmInfo.version);
+	SDL_GetWindowWMInfo(window, &wmInfo);
+
+#if defined(LOVE_WINDOWS) && !defined(LOVE_WINDOWS_UWP)
+	return wmInfo.info.win.window;
+#else
+	return wmInfo.info.x11.window;
+#endif
+}
+
 } // sdl
 } // window
 } // love

@@ -125,6 +125,8 @@ public:
 
 	void requestAttention(bool continuous) override;
 
+	int getWindowID() const override;
+
 	const char *getName() const override;
 
 private:

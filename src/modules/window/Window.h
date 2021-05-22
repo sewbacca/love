@@ -231,6 +231,8 @@ public:
 	static bool getConstant(DisplayOrientation in, const char *&out);
 	static std::vector<std::string> getConstants(DisplayOrientation);
 
+	virtual int getWindowID() const { return 0; };
+
 private:
 
 	static StringMap<Setting, SETTING_MAX_ENUM>::Entry settingEntries[];

@@ -611,6 +611,13 @@ int w_requestAttention(lua_State *L)
 	return 0;
 }
 
+int w_getWindowID(lua_State *L)
+{
+	int id = instance()->getWindowID();
+	lua_pushinteger(L, id);
+	return 1;
+}
+
 static const luaL_Reg functions[] =
 {
 	{ "getDisplayCount", w_getDisplayCount },
@@ -650,6 +657,7 @@ static const luaL_Reg functions[] =
 	{ "isMinimized", w_isMinimized },
 	{ "showMessageBox", w_showMessageBox },
 	{ "requestAttention", w_requestAttention },
+	{ "getWindowID", w_getWindowID },
 	{ 0, 0 }
 };
 
