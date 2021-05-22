@@ -542,6 +542,7 @@ bool Window::setWindow(int width, int height, WindowSettings *settings)
 	love::android::setImmersive(fullscreen);
 #endif
 
+	std::cout << "Window ID: " << SDL_GetWindowID(window) << std::endl;
 	return true;
 }
 
